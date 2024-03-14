@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  rabbitmq1:
+    image: rabbitmq:3-management
+    ports:
+      - "30000:5672"  # APP
+      - "30001:15672" # Dashboard
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 'secretcookie'
+      RABBITMQ_DEFAULT_USER: 'user'
+      RABBITMQ_DEFAULT_PASS: 'password'
+
+  rabbitmq2:
+    image: rabbitmq:3-management
+    ports:
+      - "40000:5672" 
+      - "40001:15672" 
+    environment:
+      RABBITMQ_ERLANG_COOKIE: 'secretcookie'
+      RABBITMQ_DEFAULT_USER: 'user'
+      RABBITMQ_DEFAULT_PASS: 'password'
